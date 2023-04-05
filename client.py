@@ -1,9 +1,10 @@
 import socket                   # Import socket module
 
 s = socket.socket()             # Create a socket object
-host = socket.gethostname()     # Get local machine name
-port = 6969                    # Reserve a port for your service.
-
+# Get local machine name
+port = 6970                    # Reserve a port for your service.
+host = socket.gethostname()   # Get local machine name
+ip = socket.gethostbyname(host)   # Get local machine name
 s.connect((host, port))
 s.send(b'1001')
 

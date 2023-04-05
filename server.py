@@ -2,10 +2,11 @@
 
 import socket                   # Import socket module
 
-port = 6969                    # Reserve a port for your service.
+port = 6970             # Reserve a port for your service.
 s = socket.socket()             # Create a socket object
-host = socket.gethostname()     # Get local machine name
-s.bind((host, port))            # Bind to the port
+host = socket.gethostname()   # Get local machine name
+ip = socket.gethostbyname(host)
+s.bind((ip, port))            # Bind to the port
 s.listen(1)                     # Now wait for client connection.
 
 print('Server listening....')
@@ -29,3 +30,6 @@ while True:
     print('Done sending')
     conn.send(bytes('thank u for connecting\n\n\n', 'ascii'))
     conn.close()
+
+
+
