@@ -2,13 +2,14 @@ import socket                   # Import socket module
 
 s = socket.socket()             # Create a socket object
 # Get local machine name
-port = 6970                    # Reserve a port for your service.
+port = 6971                   # Reserve a port for your service.
 host = socket.gethostname()   # Get local machine name
-ip = socket.gethostbyname(host)   # Get local machine name
-s.connect((host, port))
+ip = socket.gethostbyname(host)
+print(f'Client IP address is {ip}')   # Get local machine name
+s.connect(("0.0.0.0", port))
 s.send(b'1001')
 
-with open('receivedfile', 'ab') as f:
+with open('try.pdf', 'wb') as f:
     print('file opened')
     while True:
         print('receiving data...')
