@@ -2,7 +2,7 @@
 
 import socket                   # Import socket module
 
-port = 6971            # Reserve a port for your service.
+port = 6969            # Reserve a port for your service.
 s = socket.socket()             # Create a socket object
 host = socket.gethostname()   # Get local machine name
 # ip = socket.gethostbyname(host)
@@ -19,7 +19,7 @@ while True:
     data = conn.recv(1024)
     print('Server received', repr(data))
 
-    filename='FileTransferProtocol.pdf'
+    filename='mytext.txt'
     f = open(filename,'rb')
     l = f.readlines()
    #  conn.send(l)
@@ -30,7 +30,7 @@ while True:
     f.close()
 
     print('Done sending')
-    conn.send(bytes('thank u for connecting\n\n\n', 'ascii'))
+    # conn.send(bytes('thank u for connecting\n\n\n', 'ascii'))
     conn.close()
 
 
